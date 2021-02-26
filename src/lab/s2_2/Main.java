@@ -24,12 +24,5 @@ public class Main {
         System.out.println("Thuong 2 phan so: "+ ps1.div(ps2));
 
 
-
-
-
-
-
-
-
     }
 }
