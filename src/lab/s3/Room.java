@@ -3,41 +3,26 @@ package lab.s3;
 import java.util.ArrayList;
 
 public class Room {
-    public int tenp;
-    public String vitri;
-    public ArrayList<String> dsnd ;
+    public String name;
+    public String position;
+    public ArrayList<String> users;
 
     public Room(){
-
-        dsnd = new ArrayList<>(); //cap o nho
-    }
-    public void inthongtin(){
-        System.out.println("Ten phong: "+tenp);
-        System.out.println("Vi tri: "+vitri);
-        System.out.print("Danh sach nguoi dung:");
-        for(int i = 0;i<dsnd.size();i++){
-            System.out.println(dsnd.get(i));
-        }
+        users = new ArrayList<String>();
     }
 
-    public void addUser(String user1){
-        dsnd.add(user1);
-        System.out.println("Them 1 nguoi vao danh sach: "+user1);
-
-
+    public void showInfo(){
+        System.out.println("Ten phong: "+name);
+        System.out.println("Vi tri phong: "+position);
+        System.out.println("Danh sach nguoi dung: ");
     }
-//    public void removeUser(String user2){
-//        user2  = new String();
-//        dsnd.remove(user2);
-//        System.out.println("Xoa 1 nguoi vao danh sach: "+user2);
-//
-//    }
+    public void addUser(String user){
+        users.add(user);
+        System.out.println("Them 1 nguoi vao danh sach "+user);
+    }
 
-//    public void removeUser(int index);
-//    dsnd.remove(index);
-
-    //
-
-
-
+    public void removeUser(int index){
+        users.remove(index);
+        System.out.println("Xoa 1 nguoi khoi danh sach "+index);
+    }
 }
