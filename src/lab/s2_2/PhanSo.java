@@ -1,61 +1,104 @@
 package lab.s2_2;
 
+import java.util.Scanner;
+
 public class PhanSo {
-    public double tuso;
-    public double mauso;
+    public int tuso;
+    public int mauso;
 
-    public PhanSo(){
+    public PhanSo() {
 
     }
-   public void nhapPhanSo(){
-       System.out.println("Nhap tu so: ");
-       System.out.println("Nhap mau so: ");
 
-   }
-   public void inPhanSo(){
-       System.out.println("Tu so: "+tuso);
-       System.out.println("Mau so: "+mauso);
-
-   }
-   public double rutGonPhanSo() {
-       int ucln = 1;
-       for (int i = 1; i <= tuso && i <= mauso; i++) {
-           if (tuso % i == 0 && mauso % i == 0) {
-               if (i > ucln) {
-                   ucln = i;
-                   double rutgon = (tuso/ucln) / (mauso/ucln);
-                   return rutgon;
-               }
-           }
-       }
-       return tuso/mauso;
-   }
-
-   public double nghichDaoPhanSo(){
-        return 1/(tuso / mauso);
-   }
-   public double add(PhanSo ps2){
-        return tuso/mauso + ps2.tuso/ ps2.mauso;
-   }
-   public double sub(PhanSo ps2){
-        return tuso/mauso - ps2.tuso/ps2.mauso;
-   }
-    public double mul(PhanSo ps2){
-        return tuso/mauso * ps2.tuso/ps2.mauso;
+    //lab s2 2
+    // lab3
+    // lab4
+    public void nhapPS() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Nhap tu so: ");
+        this.tuso = sc.nextInt();
+        System.out.println("Nhap mau so: ");
+        this.mauso = sc.nextInt();
     }
-    public double div(PhanSo ps2){
-        return tuso/mauso / ps2.tuso/ps2.mauso;
+
+    public void inPS() {
+        System.out.println("Phan so: " + this.tuso + "/" + this.mauso);
     }
-    public double getTuso() {
+
+    public void rutGon() {
+        int ucln = 0;
+        for (int i = 1; i <= tuso && i <= mauso; i++) {
+            if (tuso % i == 0 && mauso % i == 0) {
+                if (i > ucln) {
+                    ucln = i;
+                }
+
+            }
+        }
+        setTuso(getTuso()/ucln);
+        setMauso(getMauso()/ucln);
+    }
+
+    public void nghichDao() {
+        if (getMauso() != 0) {
+            int temp = getTuso();
+            setTuso(getMauso());
+            setMauso(temp);
+           return;
+        }
+    }
+
+    public PhanSo add(PhanSo ps2){
+        int a = getTuso()*ps2.getMauso()+getMauso()*ps2.getTuso();
+        int b = getMauso()*ps2.getMauso();
+        PhanSo tong = new PhanSo();
+        tong.setTuso(a);
+        tong.setMauso(b);
+        return tong;
+    }
+
+    public PhanSo sub(PhanSo ps2){
+        int a = getTuso()*ps2.getMauso()-getMauso()*ps2.getTuso();
+        int b = getMauso()*ps2.getMauso();
+        PhanSo hieu = new PhanSo();
+        hieu.setTuso(a);
+        hieu.setMauso(b);
+        return hieu;
+
+    }
+    public PhanSo mul(PhanSo ps2){
+        int a = getTuso()*ps2.getTuso();
+        int b = getMauso()*ps2.getMauso();
+        PhanSo tich = new PhanSo();
+        tich.setTuso(a);
+        tich.setMauso(b);
+        return tich;
+
+    }
+    public PhanSo div(PhanSo ps2){
+        int a = getTuso()*ps2.getMauso();
+        int b = getMauso()*ps2.getTuso();
+        PhanSo thuong = new PhanSo();
+        thuong.setTuso(a);
+        thuong.setMauso(b);
+        return thuong;
+
+    }
+    public int getTuso() {
         return tuso;
     }
-    public void setTuso(double tuso) {
+
+    public void setTuso(int tuso) {
         this.tuso = tuso;
     }
-    public double getMauso() {
+
+    public int getMauso() {
         return mauso;
     }
-    public void setMauso(double mauso) {
+
+    public void setMauso(int mauso) {
         this.mauso = mauso;
     }
 }
+
+
